@@ -4,3 +4,4 @@ python-dotenv
 pymongo
 flask-bcrypt
 flask-jwt-extended
+certifi
