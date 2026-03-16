@@ -6801,6 +6801,7 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 from dotenv import load_dotenv
 import os
+import certifi
 from datetime import datetime, timedelta
 from pymongo import MongoClient
 from bson.objectid import ObjectId
@@ -6848,7 +6849,11 @@ def allowed_file(filename):
 
 
 try:
-    client = MongoClient(MONGO_URI)
+    client = MongoClient(
+    MONGO_URI,
+    tls=True,
+    tlsCAFile=certifi.where()
+    )
     db = client[DATABASE_NAME]
     users_collection = db["users"]
     contents_collection = db["contents"] 
