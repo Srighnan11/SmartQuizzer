@@ -201,10 +201,10 @@ class GeminiAPIError(Exception):
 
 # --- NLP DEPENDENCY CHECK ---
 try:
-    nltk.data.find('tokenizers/punkt')
-except nltk.downloader.DownloadError:
+    nltk.data.find("tokenizers/punkt")
+except LookupError:
     print("Downloading NLTK 'punkt' data...")
-    nltk.download('punkt')
+    nltk.download("punkt")
 # ----------------------------
 
 class AIService:
